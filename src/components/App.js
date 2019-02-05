@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
-import Gift from './Gift';
+import React, { Component } from "react";
+import { Button } from "react-bootstrap";
+import Gift from "./Gift";
 
 class App extends Component {
   constructor() {
@@ -8,32 +8,33 @@ class App extends Component {
 
     this.state = {
       gifts: []
-    }
+    };
   }
 
   addGift = () => {
     const { gifts } = this.state;
 
     const ids = this.state.gifts.map(gift => gift.id);
-    const max_id = ids.length > 0 ? Math.max(...ids): 0;
+    const max_id = ids.length > 0 ? Math.max(...ids) : 0;
 
-    gifts.push({ id: max_id+1 });
+    gifts.push({ id: max_id + 1 });
 
     this.setState({ gifts });
-  }
+  };
 
   render() {
     const gifts = this.state.gifts.map(gift => {
-      return <li key={gift.id}>{gift.id}</li>
-    })
+      return <Gift key={gift.id} />;
+    });
     return (
       <div>
-        <Gift/>
         <h2>Gift Giver</h2>
-        <div className='gift-list'>{gifts}</div>
-        <Button onClick={this.addGift} className='btn-add'>Add Gift</Button>
+        <div className="gift-list">{gifts}</div>
+        <Button onClick={this.addGift} className="btn-add">
+          Add Gift
+        </Button>
       </div>
-    )
+    );
   }
 }
 
