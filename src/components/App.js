@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
+import Gift from './Gift';
 
 class App extends Component {
   constructor() {
@@ -27,6 +28,7 @@ class App extends Component {
     })
     return (
       <div>
+        <Gift/>
         <h2>Gift Giver</h2>
         <div className='gift-list'>{gifts}</div>
         <Button onClick={this.addGift} className='btn-add'>Add Gift</Button>
