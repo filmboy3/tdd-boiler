@@ -22,9 +22,13 @@ class App extends Component {
   }
 
   render() {
+    const gifts = this.state.gifts.map(gift => {
+      return <li key={gift.id}>{gift.id}</li>
+    })
     return (
       <div>
         <h2>Gift Giver</h2>
+        <div className='gift-list'>{gifts}</div>
         <Button onClick={this.addGift} className='btn-add'>Add Gift</Button>
       </div>
     )
