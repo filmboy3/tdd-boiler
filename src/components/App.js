@@ -29,7 +29,7 @@ class App extends Component {
 
   render() {
     const gifts = this.state.gifts.map(gift => {
-      return <Gift key={gift.id} />;
+      return <Gift key={gift.id} gift={gift} removeGift={this.removeGift} />;
     });
     return (
       <div>
